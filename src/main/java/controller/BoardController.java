@@ -65,9 +65,17 @@ public class BoardController {
 
     // post write
     public void write(BoardDTO attempt) {
-        String query = "INSERT INTO board (title, content, entry_date, modify_date) VALUE";
+        String query = "INSERT INTO board (title, content, writer_id) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, attempt.getTitle());
+            preparedStatement.setString(2, attempt.getContent());
+            preparedStatement.setInt(3, );
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
 
     // post update
     public void update(BoardDTO attempt) {
@@ -95,7 +103,4 @@ public class BoardController {
             e.printStackTrace();
         }
     }
-
-
-
 }

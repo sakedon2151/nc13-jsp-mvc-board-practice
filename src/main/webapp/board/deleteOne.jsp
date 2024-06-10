@@ -12,8 +12,6 @@
         MySqlConnector connector = new MySqlConnector();
         BoardController boardController = new BoardController(connector);
         BoardDTO boardDTO = boardController.selectOne(id);
-
-
     %>
 
     <div class="postDeleteWrap">
