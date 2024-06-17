@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+    <script>
+        // DOM
+        // Document Object Model
+        // DOM 이란, HTML 의 태그들을
+        // 하나의 객체처럼 다룰 수 있게 만들어주는 자바스크립트 객체이다.
+        // 우리가 DOM 을 사용하면 태그의 값들을 변경하거나 여러가지 동작을 정의해 줄 수 있다.
+    </script>
+
+    <h1 id="myHeading"></h1>
+    <h2 class="heading-temp"></h2>
+    <h2 class="heading-temp"></h2>
+    <h2 class="heading-temp"></h2>
+
+    <script>
+        // DOM 을 통해서 우리가 특정 태그를 선택하여 그 안의 설정 혹은 텍스트 값을 변경 가능하다.
+        // 위의 h1 태그의 경우, 우리가 별다른 글자를 입력하지 않았지만.
+        // DOM 을 사용하여 해당 태그를 선택하고, 그 안에 저장된 값을 "자바스크립트" 로 변경한 것이다.
+        document.getElementById("myHeading").innerText = "자바스크립트";
+
+        // DOM 의 경우, 특정 태그를 선택하는 방법이 여러가지가 있다.
+        // 1. ID 값을 통한 조회
+        // document.getElementById("id 이름");
+        // 2. 특정 클래스를 가진 태그들을 모두 선택
+        document.getElementsByClassName("heading-temp");
+        // 3. 특정 태그들을 모두 선택
+        document.getElementsByTagName("h1");
+
+        // 한가지 주의할 점은, id를 선택하는 것을 제외하고는
+        // 모두다 결과가 배열로 나온다는 점이다.
+        console.log(typeof (document.getElementById("myHeading")));
+        console.log(typeof (document.getElementsByClassName("heading-temp")));
+        document.getElementsByClassName("heading-temp")[0].innerText = "abc";
+
+        // 또한 각각의 결과를 변수에 저장할 수 있다.
+        let x = document.getElementById("myHeading");
+        x.innerText = "x에 저장된 h1 태그";
+
+        let y = document.getElementsByClassName("heading-temp");
+        for (temp of y) {
+            temp.innerText = "aaaaaa";
+        }
+
+        function changeText() {
+            document.getElementById("myHeading").innerText = "버튼을 눌러서 바꿨다!";
+        }
+
+
+    </script>
+    <button onclick="changeText()">눌러보세요</button>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+    <button onclick="change()">눌러보세요</button>
+
+    <script>
+        function change() {
+            let doc = document;
+            let body = document.getElementsByTagName("body")[0];
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            let rgb = "rgb(" + r + ", " + g + ", " + b + ")";
+            body.style.backgroundColor = rgb;
+        }
+    </script>
+
+</body>
+</html>

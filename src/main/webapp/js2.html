@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+    <script>
+        // 함수(function)
+        // 자바스크립트에서도 당연히 함수라는 것이 존재한다.
+
+        function temp(a, b) {
+            console.log(a);
+            console.log(b);
+
+            return a + b;
+        }
+
+        let x = 10;
+        let y = 30;
+
+        console.log(temp(x, y));
+
+        // 반복문
+        // 자바스크립트에서 반복문은 for, while이 다 있지만
+        // 우리는 주로 for를 사용하게 된다.
+        // 단, for 의 형식이 우리가 알던 for 와 좀 다르게 사용되는 경우가 대다수이다.
+        for (let i = 0; i < 10; i++) {
+            console.log("i: " + i)
+        }
+
+        // 자바스크립트에서 배열 만들기
+        x = [1, 2, 3, 4, 5, 6];
+        // 배열에서 1개씩 뽑아서 출력하기
+        for (let i of x) {
+            console.log("i: " + i);
+        }
+
+        // 자바스크립트에서 객체 만들기
+        let student = {
+            'name': '김철수',
+            'age': 14,
+            'korean': 80,
+            'english': 80,
+            'math': 81,
+            'calcAvg': function () {
+                return (this.korean + this.english + this.math) / 3.0;
+            }
+        }
+
+        // 위와 같이 객체의 필드와 값을
+        // 표현하는 방법을 우리는 JavaScript Object Notation, JSON 이라고 부른다.
+        // 이 방식의 표현 방법은 이제 국제 표준화라고 할 만큼 널리 쓰이는 방식이므로
+        // 다들 이 표현 방식에 익숙해져야 한다.
+
+        // 위에서 만든 객체를 출력해보자
+        console.log(student);
+        console.log(typeof(student)); // object
+
+        // 우리가 객체안의 내용을 탐색할 때에는?
+        for (x in student) {
+            console.log(x);
+        }
+
+        // 자바스크립트 객체에 새로운 필드 만들기
+        // 2개의 방법이 가능하다.
+        student.science = 90;
+        student['id'] = 3;
+
+        // 위의 for in 을 사용하여
+        // 객체의 필드이름과 현재 저장된 값을 쭉 뽑아내보자
+        for (x in student) {
+            console.log('student [' + x + ']: ' + student[x]);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+    <script>
+        let curIdx = 2; // 복제요소 id용 인덱스 카운트
+    </script>
+
+    <button onclick="location.href='js5.html'">js5.html로 이동</button>
+
+    <form id="form">
+        <div id="inputRow_1">
+            <input type="text" placeholder="번호" id="inputId1">
+            <input type="text" placeholder="이름" id="inputName1">
+            <input type="text" placeholder="나이" id="inputAge1">
+            <button type="button" onclick="addRow()" class="btnAddRow">+</button>
+<!--            <button type="button" onclick="removeRow('inputRow_1')" id="btnRemove1">-</button>-->
+        </div>
+    </form>
+
+    <script>
+        // 번호, 이름, 나이를 입력하는 칸을 만들고
+        // 그 옆에 + - 버튼을 만들어서
+        // + 버튼을 누르면 비어있는 입력칸이 새로 한줄 추가되고
+        // - 버튼을 누르면 해당 줄이 삭제되는 코드를 작성해보세요.
+
+        function addRow() {
+            let newRow = document.createElement("div");
+
+            let inputId = document.createElement("input");
+            inputId.type = "text";
+            inputId.id = "inputId" + curIdx;
+            inputId.placeholder = "번호";
+
+            let inputName = document.createElement("input");
+            inputName.type = "text";
+            inputName.id = "inputName" + curIdx;
+            inputName.placeholder = "이름";
+
+            let inputAge = document.createElement("input");
+            inputAge.type = "text";
+            inputAge.id = "inputAge" + curIdx;
+            inputAge.placeholder = "나이";
+
+            let btnAdd = document.createElement("button");
+            btnAdd.innerText = "+";
+            btnAdd.type = "button"
+            // btnAdd.onclick = addRow;
+            btnAdd.setAttribute("onclick", "addRow()")
+
+            let btnRemove = document.createElement("button");
+            btnRemove.innerText = "-";
+            btnRemove.type = "button"
+            // btnRemove.onclick = removeRow;
+            btnRemove.setAttribute("onclick", "removeRow('inputRow_" + curIdx + "')");
+
+            // newRow 의 자식으로 넣어주기
+            newRow.appendChild(inputId);
+            newRow.appendChild(inputName);
+            newRow.appendChild(inputAge);
+            newRow.appendChild(btnAdd);
+            newRow.appendChild(btnRemove);
+
+            // 고유 id 붙여주기
+            newRow.id = "inputRow_" + curIdx;
+            curIdx++;
+
+            document.getElementById("form").appendChild(newRow);
+        }
+
+        function removeRow(id) {
+            let row = document.getElementById(id);
+            let form = document.getElementById('form');
+            form.removeChild(row);
+        }
+    </script>
+</body>
+</html>
